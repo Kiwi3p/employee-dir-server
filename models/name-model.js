@@ -8,12 +8,13 @@ const nameSchema = new Schema({
   },
   picture: {
     thumbnail: String,
+    large: String,
   },
   gender: String,
   location: {
     city: String,
     state: String,
-  }
+  },
 });
 
 const Name = mongoose.model("Name", nameSchema);

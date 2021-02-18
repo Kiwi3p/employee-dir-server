@@ -13,7 +13,7 @@ router.get("/names", (req, res) => {
 
 //Route to add a new project
 router.post("/names", (req, res) => {
-  const { first, last, thumbnail, gender, city, state } = req.body;
+  const { first, last, thumbnail, large, gender, city, state } = req.body;
   Name.create({
     name: {
       first,
@@ -21,6 +21,7 @@ router.post("/names", (req, res) => {
     },
     picture: {
       thumbnail,
+      large,
     },
     gender,
     location: {
@@ -46,7 +47,7 @@ router.put("/names/:id", (req, res) => {
 
   Name.findByIdAndUpdate(projectId, projectWithNewDetails).then(() => {
     res.json({
-      message: `Project with ${req.params.id} was updated successfully`,
+      message: `Employee with ${req.params.id} was updated successfully`,
     });
   });
 });
