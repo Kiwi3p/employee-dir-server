@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 const cors = require("cors");
+
 // const session = require("express-session");
 
 mongoose
@@ -59,7 +60,6 @@ app.locals.title = "Express - Jack Transue Node Server";
 //resources from our backend
 app.use(
   cors({
-    credentials: true,
     origin: [process.env.CLIENT_HOSTNAME, "http://localhost:3000"],
   })
 );
