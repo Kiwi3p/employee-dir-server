@@ -46,6 +46,7 @@ app.use(
   })
 );
 
+
 app.use(express.static(path.join(__dirname, "dist")));
 
 app.set("views", path.join(__dirname, "views"));
@@ -59,10 +60,16 @@ app.locals.title = "Express - Jack Transue Node Server";
 //Alowing our frontend to get
 //resources from our backend
 app.use(
-  cors({
-    origin: [process.env.CLIENT_HOSTNAME, "http://localhost:3000"],
-  })
+  cors()
 );
+
+app.get('/names/:id', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
+
+app.listen(80, function () {
+  console.log('CORS-enabled web server listening on port 80')
+})
 
 const index = require("./routes/index");
 app.use("/", index);
