@@ -43,9 +43,21 @@ router.get("/names/:id", (req, res) => {
 //Route to update a project
 router.put("/names/:id", (req, res) => {
   const projectId = req.params.id;
-  const projectWithNewDetails = req.body;
+  console.log(projectId);
+  //const projectWithNewDetails = req.body;
+  //console.log(projectWithNewDetails);
+  const { first, last, city, state } = req.body;
 
-  Name.findByIdAndUpdate(projectId, projectWithNewDetails).then(() => {
+  Name.findByIdAndUpdate(projectId, {
+    name: {
+      first,
+      last,
+    },
+    location: {
+      city,
+      state,
+    },
+  }).then(() => {
     res.json({
       message: `Employee with ${req.params.id} was updated successfully`,
     });
