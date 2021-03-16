@@ -1,10 +1,10 @@
 {
-  "name": "postlight-server-v2",
+  "name": "contacts-server-v2",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "DEBUG=postlight-server-v2:* nodemon ./bin/www",
+    "dev": "DEBUG=contacts-server-v2:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
